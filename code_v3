@@ -1,0 +1,56 @@
+using System;
+public class FunctionDemo
+{
+    public static double Binom(double k, double n)
+    {
+        //  FORMULA:  n! / k! * ((n-k)!)
+
+        double nfak = 1;
+        for (int i = 1; i <= n; i++)  // Faculty von n
+        {
+            nfak *= i;
+        }
+
+
+        double kfak = 1;
+        for (int i = 1; i <= k; i++)  // Faculty von k
+        {
+            kfak *= i;
+        }
+
+
+        double nminusk = n - k;
+        int nkfak = 1;
+        for (int i = 1; i <= nminusk; i++)  // Faculty von n-k
+        {
+            nkfak *= i;
+        }
+
+        
+
+        double ergebnis = Fak(n) / (Fak(k) * (Fak(n-k)));
+        return ergebnis;
+    }
+    public static double Fak(int zahl)
+    {
+        int fak = 1;
+        for (int i = 1; i <= zahl; i++)
+        {
+            fak *= i;
+        }
+        return fak;
+    }
+}
+
+
+
+class Programm
+{
+    static void Main()
+    {
+        double Binom_Result = FunctionDemo.Binom(4, 3);
+        Console.WriteLine(Binom_Ergebnis);
+        double Fak_Result = FunctionDemo.Fak(4);
+        Console.WriteLine(Fak_Result);
+    }
+}
